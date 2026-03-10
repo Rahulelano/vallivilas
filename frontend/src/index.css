@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 13%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 13%;
+
+    --primary: 348 70% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 30 60% 95%;
+    --secondary-foreground: 0 0% 13%;
+
+    --muted: 30 20% 95%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 30 80% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 20% 88%;
+    --input: 30 20% 88%;
+    --ring: 348 70% 35%;
+
+    --radius: 0.5rem;
+
+    --gold: 38 72% 50%;
+    --gold-light: 38 72% 90%;
+    --cream: 38 50% 97%;
+    --deep-maroon: 348 70% 25%;
+    --warm-brown: 20 30% 30%;
+
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .section-heading {
+    font-family: var(--font-display);
+    @apply text-3xl md:text-4xl font-semibold text-foreground;
+  }
+  .section-subtitle {
+    @apply text-muted-foreground text-base md:text-lg mt-2;
+  }
+  .product-card {
+    @apply bg-card rounded-lg overflow-hidden border border-border hover:shadow-lg transition-shadow duration-300;
+  }
+  .badge-discount {
+    @apply bg-primary text-primary-foreground text-xs font-bold px-2 py-1 rounded;
+  }
+  .badge-hot {
+    @apply bg-accent text-accent-foreground text-xs font-bold px-2 py-1 rounded uppercase;
+  }
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded font-semibold hover:opacity-90 transition-opacity;
+  }
+  .btn-outline-primary {
+    @apply border-2 border-primary text-primary px-6 py-3 rounded font-semibold hover:bg-primary hover:text-primary-foreground transition-colors;
+  }
+  .announcement-bar {
+    @apply bg-deep-maroon text-primary-foreground text-sm py-2 text-center;
+  }
+  .nav-link {
+    @apply text-foreground hover:text-primary transition-colors font-medium text-sm tracking-wide;
+  }
+  .trust-badge {
+    @apply flex flex-col items-center text-center gap-3 p-4;
+  }
+  .category-card {
+    @apply relative rounded-xl overflow-hidden cursor-pointer;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.3);
+  border-radius: 3px;
+}
+
+/* Carousel animation */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-scroll-left {
+  animation: scroll-left 30s linear infinite;
+}
